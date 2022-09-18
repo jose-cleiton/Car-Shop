@@ -42,6 +42,6 @@ export default class ServiceCar {
 
   public deleteCar = async (id: string) => {
     await this.getCarById(id);
-    await this.model.delete(id);
+    // await this.model.delete(id);
   };
 }

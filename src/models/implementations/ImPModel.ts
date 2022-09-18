@@ -9,8 +9,11 @@ export default abstract class ImPModel<T> implements IModel<T> {
   public readOne = async (data: string): Promise<T | null> =>
     this.model.findOne({ data });
   
-  public delete = async (data: string): Promise<T | null> =>
-    this.model.findByIdAndDelete({ data });
+  public delete = async (data: string): Promise<T | null> => {
+    const resp = await this.model.findByIdAndDelete({ data });
+
+    return resp;
+  };
 
   public create = async (data: T): Promise<T> =>
     this.model.create({ ...data });

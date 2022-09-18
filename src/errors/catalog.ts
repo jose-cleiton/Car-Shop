@@ -1,6 +1,7 @@
 export enum ErrorTypes {
   EntityNotFound = 'EntityNotFound',
   InvalidMongoId = 'InvalidMongoId',
+  
 }
 
 // esse é o tipo do objeto vai ser usado construir a resposta da API
