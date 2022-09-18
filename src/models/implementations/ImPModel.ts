@@ -4,13 +4,13 @@ import { IModel } from '../../interfaces/IModel';
 export default abstract class ImPModel<T> implements IModel<T> {
   constructor(private model: Model<T>) { }
 
-  read = async (): Promise<T[]> => this.model.find();
+  public read = async (): Promise<Array<T>> => this.model.find();
   
-  readOne = async (data: string): Promise<T | null> =>
-    this.model.findOne({ dataValue: data });
+  public readOne = async (data: string): Promise<T | null> =>
+    this.model.findOne({ data });
   
-  delete = async (data: string): Promise<T | null> =>
-    this.model.findByIdAndDelete({ dataValue: data });
+  public delete = async (data: string): Promise<T | null> =>
+    this.model.findByIdAndDelete({ data });
 
   public create = async (data: T): Promise<T> =>
     this.model.create({ ...data });

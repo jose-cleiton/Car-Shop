@@ -8,5 +8,6 @@ routerCar.post('/cars', factory.startCar.postCar);
 
 routerCar.get('/cars/:id', factory.startCar.getCarById);
 routerCar.get('/cars', factory.startCar.getCars);
+routerCar.delete('/cars/:id', factory.startCar.deleteCar);
 
 export default routerCar;

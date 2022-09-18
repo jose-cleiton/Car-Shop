@@ -7,18 +7,18 @@ export default class CarController {
   public postCar = async (request: Request, response: Response) => {
     const { body } = request;
     const results = await this.serviceCar.saveNewCar(body);
-    response.status(201).json(results);
+    return response.status(201).json(results);
   };
 
   public getCars = async (_request: Request, response: Response) => {
     const results = await this.serviceCar.getCarsList();
-    response.status(200).json(results);
+    return response.status(200).json(results);
   };
 
   public getCarById = async (request: Request, response: Response) => {
     const { id } = request.params;
     const result = await this.serviceCar.getCarById(id);
-    response.status(200).json(result);
+    return response.status(200).json(result);
   };
 
   public putCar = async (request: Request, response: Response) => {
@@ -26,6 +26,12 @@ export default class CarController {
     const { body } = request;
     
     const result = await this.serviceCar.updateCar(id, body);
-    response.status(200).json(result);
+    return response.status(200).json(result);
+  };
+
+  public deleteCar = async (request: Request, response: Response) => {
+    const { id } = request.params;
+    await this.serviceCar.deleteCar(id);
+    return response.status(204).end();
   };
 }
